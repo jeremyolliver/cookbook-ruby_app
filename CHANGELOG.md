@@ -1,11 +1,11 @@
-cookbook-ruby_app CHANGELOG
+ruby_app CHANGELOG
 ===========================
 
-This file is used to list changes made in each version of the cookbook-ruby_app cookbook.
+This file is used to list changes made in each version of the ruby_app cookbook.
 
 0.1.0
 -----
-- [your_name] - Initial release of cookbook-ruby_app
+- [your_name] - Initial release of ruby_app
 
 - - -
 Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.

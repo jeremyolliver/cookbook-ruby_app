@@ -1,6 +1,6 @@
 # Encoding: utf-8
 #
-# Cookbook Name:: cookbook-ruby_app
+# Cookbook Name:: ruby_app
 # Recipe:: default
 #
 # Copyright 2014, Jeremy Olliver
