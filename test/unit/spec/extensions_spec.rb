@@ -4,6 +4,7 @@ require_relative 'spec_helper'
 
 describe 'ruby_app::extensions' do
   before { stub_resources }
+
   describe 'ubuntu' do
     let(:chef_run) { ChefSpec::Runner.new.converge(described_recipe) }
 
@@ -14,6 +15,7 @@ describe 'ruby_app::extensions' do
     end
 
   end
+
   describe 'centos' do
     let(:chef_run) { ChefSpec::Runner.new.converge(described_recipe) }
 

@@ -1,13 +1,18 @@
-ruby_app CHANGELOG
-===========================
+# ruby_app Changelog
 
-This file is used to list changes made in each version of the ruby_app cookbook.
+## v0.1.0
 
-0.1.0
------
-- [your_name] - Initial release of ruby_app
+Initial release of ruby_app.
+
+Features:
+
+* installs rubies into `/opt/rubies`
+* installs ruby `2.1.0` by default
+* installs bundler into those rubies
+* provides [chruby](https://github.com/postmodern/chruby) for ruby switching
+* uses `ruby_build` for ruby installation
+* optional recipe `ruby_app::extensions` installs development headers for xml and imagemagick
+* Test suite of unit and integration tests
 
 - - -
-Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.
-
-The [Github Flavored Markdown page](http://github.github.com/github-flavored-markdown/) describes the differences between markdown on github and standard markdown.
+Authors: Jeremy Olliver
