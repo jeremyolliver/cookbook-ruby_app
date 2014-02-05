@@ -1,7 +1,7 @@
 # Encoding: utf-8
 #
 # Cookbook Name:: ruby_app
-# Recipe:: default
+# Recipe:: extensions
 #
 # Copyright 2014, Jeremy Olliver
 #
@@ -18,25 +18,16 @@
 # limitations under the License.
 #
 
-# Install specified rubies
-include_recipe "ruby_build"
+xml_handling_packages = value_for_platform(
+  [ "centos", "redhat", "scientific", "suse", "fedora", "amazon" ] => { "default" => ["libxml2-devel","libxslt-devel"] },
+  [ "freebsd" ] => { "default" => ["libxml2","libxslt"] },
+  "default" => ["libxml2-dev", "libxslt-dev"]
+)
 
-node['rubies'].each do |ruby_version_string, is_enabled|
-  if is_enabled
-    # install and compile ruby
-    ruby_build_ruby ruby_version_string do
-      prefix_path "/opt/rubies/#{ruby_version_string}"
-    end
-
-    # Install bundler
-    gem_package "ruby-#{ruby_version_string}-bundler" do
-      package_name "bundler"
-      version      node['ruby']['bundler']['version']
-      gem_binary   "/opt/rubies/#{ruby_version_string}/bin/gem"
-    end
-
+xml_handling_packages.each do |pkg|
+  package pkg do
+    action :install
   end
 end
 
-# Install chruby for ruby switching
-include_recipe 'chruby'
+# TODO: imagemagick

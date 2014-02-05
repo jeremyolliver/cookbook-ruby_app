@@ -4,4 +4,6 @@ require_relative 'spec_helper'
 
 describe 'default' do
   it { pending 'write some tests' }
+
+  # TODO: check for prescence of chruby executable, ruby binary, and bundler binary
 end

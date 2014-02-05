@@ -1,13 +1,17 @@
 ruby_app Cookbook
 ==========================
-TODO: Enter the cookbook description here.
+This cookbook sets up a server ready to use in a common deployment environment.
 
-e.g.
-This cookbook makes your favorite breakfast sandwich.
+This cookbook:
+
+* installs a set of rubies globally to /opt/rubies (defined via attributes)
+* Makes the bundler gem available, ready to install your application's dependencies
+* by default, installs some common development packages required for some gem's extensions (xml for nokogiri, and imagemagick for image manipulation)
+* Turn's on chruby's ruby auto switching for minimal configuration needed for application deployment
 
 Requirements
 ------------
-TODO: List your cookbook requirements. Be sure to include any requirements this cookbook has on platforms, libraries, other cookbooks, packages, operating systems, etc.
+
 
 e.g.
 #### packages
@@ -15,7 +19,6 @@ e.g.
 
 Attributes
 ----------
-TODO: List you cookbook attributes here.
 
 e.g.
 #### ruby_app::default
@@ -27,10 +30,10 @@ e.g.
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['ruby_app']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
+    <td><tt></tt></td>
+    <td>Hash</td>
+    <td>A list of ruby versions, and a truthy value to mark which ones to install</td>
+    <td><tt>{'1.9.3-p392' => true}</tt></td>
   </tr>
 </table>
 
