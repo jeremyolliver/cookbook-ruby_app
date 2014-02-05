@@ -4,6 +4,13 @@ This cookbook sets up a server ready to use in a common deployment environment.
 
 This cookbook:
 
+* installs rubies into `/opt/rubies` configurable via `node['rubies']`
+* installs bundler into each of those rubies
+* provides [chruby](https://github.com/postmodern/chruby) for ruby switching
+* uses `ruby_build` for ruby installation
+* optional recipe `ruby_app::extensions` installs development headers for xml and imagemagick
+* Test suite of unit and integration tests
+
 * installs a set of rubies globally to /opt/rubies (defined via attributes)
 * Makes the bundler gem available, ready to install your application's dependencies
 * by default, installs some common development packages required for some gem's extensions (xml for nokogiri, and imagemagick for image manipulation)
@@ -12,10 +19,6 @@ This cookbook:
 Requirements
 ------------
 
-
-e.g.
-#### packages
-- `toaster` - ruby_app needs toaster to brown your bagel.
 
 Attributes
 ----------
@@ -30,17 +33,22 @@ e.g.
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt></tt></td>
+    <td><tt>rubies</tt></td>
     <td>Hash</td>
     <td>A list of ruby versions, and a truthy value to mark which ones to install</td>
     <td><tt>{'1.9.3-p392' => true}</tt></td>
+  </tr>
+  <tr>
+    <td><tt>ruby/bundler/version</tt></td>
+    <td>String</td>
+    <td>The version of bundler to install for each ruby</td>
+    <td><tt>1.5.2</tt></td>
   </tr>
 </table>
 
 Usage
 -----
 #### ruby_app::default
-TODO: Write usage instructions for each cookbook.
 
 e.g.
 Just include `ruby_app` in your node's `run_list`:
@@ -54,9 +62,13 @@ Just include `ruby_app` in your node's `run_list`:
 }
 ```
 
+#### ruby_app::extensions (optional)
+
+If you will also be using imagemagick for the `Rmagick` or `mini_magick` gems, or `nokogiri` for XML parsing, then you should also include this optional cookbook in your run list
+to install the necessary packages
+
 Contributing
 ------------
-TODO: (optional) If this is a public cookbook, detail the process for contributing. If this is a private cookbook, remove this section.
 
 e.g.
 1. Fork the repository on Github
@@ -68,4 +80,5 @@ e.g.
 
 License and Authors
 -------------------
+License: Apache 2.0
 Authors: Jeremy Olliver
