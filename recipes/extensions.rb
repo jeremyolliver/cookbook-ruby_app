@@ -19,9 +19,12 @@
 #
 
 xml_handling_packages = value_for_platform(
-  [ "centos", "redhat", "scientific", "suse", "fedora", "amazon" ] => { "default" => ["libxml2-devel","libxslt-devel"] },
-  [ "freebsd" ] => { "default" => ["libxml2","libxslt"] },
-  "default" => ["libxml2-dev", "libxslt-dev"]
+  "default" => ["libxml2-dev", "libxslt-dev"],
+
+  ["centos", "redhat", "scientific", "suse", "fedora", "amazon" ] =>
+      { "default" => ["libxml2-devel","libxslt-devel"] },
+  [ "freebsd" ] =>
+      { "default" => ["libxml2","libxslt"] }
 )
 
 xml_handling_packages.each do |pkg|
@@ -30,4 +33,25 @@ xml_handling_packages.each do |pkg|
   end
 end
 
-# TODO: imagemagick
+# imagemagick
+
+if platform_family?("rhel", "fedora")
+  package "ImageMagick"
+elsif platform_family?("debian")
+  package "imagemagick"
+end
+
+image_magick_dev_pkgs = value_for_platform(
+  ["redhat", "centos", "fedora"] => { "default" => ["ImageMagick-devel"] },
+  "debian" => { "default" => ["libmagickwand-dev"] },
+  "ubuntu" => {
+    "8.04" => ["libmagick9-dev"],
+    "8.10" => ["libmagick9-dev"],
+    "12.04" => ["libgvc5", "libmagickcore4-extra", "libmagickcore-dev", "libmagickwand-dev"],
+    "default" => ["libmagickwand-dev"]
+  }
+)
+
+image_magick_dev_pkgs.each do |pkg|
+  package pkg
+end

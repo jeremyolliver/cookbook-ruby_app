@@ -25,7 +25,8 @@ describe 'default' do
 
     describe file('/etc/profile.d/chruby.sh') do
       it { should be_file }
-      # it { should be_executable } # Apparently this doesn't need to be executable to get loaded
+      # Apparently this doesn't need to be executable to get loaded
+      # it { should be_executable }
     end
 
     describe 'chruby-exec switching' do

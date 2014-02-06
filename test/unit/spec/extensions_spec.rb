@@ -9,7 +9,13 @@ describe 'ruby_app::extensions' do
     let(:chef_run) { ChefSpec::Runner.new.converge(described_recipe) }
 
     it 'should install xml libs' do
-      ["libxml2-dev", "libxslt-dev"].each do |package_name|
+      %w(libxml2-dev libxslt-dev).each do |package_name|
+        expect(chef_run).to install_package(package_name)
+      end
+    end
+
+    it 'should install imagemagick libs' do
+      %w(imagemagick libmagickwand-dev).each do |package_name|
         expect(chef_run).to install_package(package_name)
       end
     end
@@ -20,7 +26,13 @@ describe 'ruby_app::extensions' do
     let(:chef_run) { ChefSpec::Runner.new.converge(described_recipe) }
 
     it 'should install rhel packages' do
-      ["libxml2-devel","libxslt-devel"].each do |package_name|
+      %w(libxml2-devel libxslt-devel).each do |package_name|
+        expect(chef_run).to install_package(package_name)
+      end
+    end
+
+    it 'should install imagemagick libs' do
+      %w(ImageMagick ImageMagick-devel).each do |package_name|
         expect(chef_run).to install_package(package_name)
       end
     end
