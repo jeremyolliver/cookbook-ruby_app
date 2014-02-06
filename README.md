@@ -1,4 +1,4 @@
-ruby_app Cookbook
+ruby_app cookbook
 ==========================
 This cookbook sets up a server ready to use in a common deployment environment.
 
@@ -9,7 +9,7 @@ This cookbook:
 * provides [chruby](https://github.com/postmodern/chruby) for ruby switching
 * uses `ruby_build` for ruby installation
 * optional recipe `ruby_app::extensions` installs development headers for xml and imagemagick
-* Test suite of unit and integration tests
+* Has a test suite of unit and integration tests
 
 * installs a set of rubies globally to /opt/rubies (defined via attributes)
 * Makes the bundler gem available, ready to install your application's dependencies
@@ -19,11 +19,13 @@ This cookbook:
 Requirements
 ------------
 
+This cookbook depends on the `chruby` and `ruby_build` cookbooks. `yum` cookbook is recommended for rhel family platforms, and the `apt` cookbook is recomended for debian family platforms.
+
+On Ubuntu 10.04 you will most likely need to run apt-get as the first thing you do. It is recommended that the apt cookbook is at, or near the start of your run_list.
 
 Attributes
 ----------
 
-e.g.
 #### ruby_app::default
 <table>
   <tr>
@@ -36,7 +38,7 @@ e.g.
     <td><tt>rubies</tt></td>
     <td>Hash</td>
     <td>A list of ruby versions, and a truthy value to mark which ones to install</td>
-    <td><tt>{'1.9.3-p392' => true}</tt></td>
+    <td><tt>{'2.1.0' => true}</tt></td>
   </tr>
   <tr>
     <td><tt>ruby/bundler/version</tt></td>
@@ -70,7 +72,6 @@ to install the necessary packages
 Contributing
 ------------
 
-e.g.
 1. Fork the repository on Github
 2. Create a named feature branch (like `feature/add_component_x`)
 3. Write your change
@@ -81,4 +82,5 @@ e.g.
 License and Authors
 -------------------
 License: Apache 2.0
+
 Authors: Jeremy Olliver
