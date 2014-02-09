@@ -10,10 +10,16 @@ platforms:
     run_list:
       - recipe[apt]
   - name: ubuntu-12.04
+    run_list:
+      - recipe[apt]
   - name: centos-5.9
   - name: centos-6.4
 
 suites:
   - name: default
-    run_list: recipe[ruby_app::default]
+    run_list: "recipe[ruby_app::default]"
+    attributes:
+
+  - name: extensions
+    run_list: "recipe[ruby_app::extensions]"
     attributes:
