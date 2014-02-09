@@ -1,0 +1,13 @@
+---
+language: ruby
+rvm:
+  - 1.9.3
+bundler_args: --without integration
+script: bundle exec strainer -s ci/Strainerfile
+branches:
+  only:
+    - master
+    - develop
+notifications:
+  recipients:
+    - jeremy.olliver@gmail.com
