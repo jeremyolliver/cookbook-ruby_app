@@ -2,8 +2,10 @@
 language: ruby
 rvm:
   - 1.9.3
+cache:
+  - bundler
 bundler_args: --without integration
-script: bundle exec strainer -s ci/Strainerfile
+script: bundle exec strainer --strainer-file=ci/Strainerfile
 branches:
   only:
     - master

@@ -6,7 +6,7 @@ describe 'ruby_app::extensions' do
   before { stub_resources }
 
   describe 'ubuntu' do
-    let(:chef_run) { ChefSpec::Runner.new.converge(described_recipe) }
+    let(:chef_run) { ChefSpec::Runner.new(UBUNTU_OPTS).converge(described_recipe) }
 
     it 'should install xml libs' do
       %w(libxml2-dev libxslt-dev).each do |package_name|
@@ -23,7 +23,7 @@ describe 'ruby_app::extensions' do
   end
 
   describe 'centos' do
-    let(:chef_run) { ChefSpec::Runner.new.converge(described_recipe) }
+    let(:chef_run) { ChefSpec::Runner.new(CENTOS_OPTS).converge(described_recipe) }
 
     it 'should install rhel packages' do
       %w(libxml2-devel libxslt-devel).each do |package_name|

@@ -38,7 +38,7 @@ Attributes
     <td><tt>rubies</tt></td>
     <td>Hash</td>
     <td>A list of ruby versions, and a truthy value to mark which ones to install</td>
-    <td><tt>{'2.1.0' => true}</tt></td>
+    <td><tt>{'2.0.0-p353' => true}</tt></td>
   </tr>
   <tr>
     <td><tt>ruby/bundler/version</tt></td>

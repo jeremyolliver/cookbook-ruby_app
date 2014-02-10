@@ -3,7 +3,7 @@
 require_relative 'spec_helper'
 
 describe 'default' do
-  let(:default_ruby_version) { '2.1.0' }
+  let(:default_ruby_version) { '2.0.0-p353' }
   let(:bundler_version)      { '1.5.2'}
 
   describe 'ruby-build' do

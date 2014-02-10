@@ -25,7 +25,7 @@ attribute 'rubies',
   :description => 'the ruby versions to install',
   :type => 'hash',
   :recipes => ['ruby_app::default'],
-  :default => { '2.1.0' => true }
+  :default => { '2.0.0-p353' => true }
 
 attribute 'ruby/bundler/version',
   :display_name => 'bundler version',
