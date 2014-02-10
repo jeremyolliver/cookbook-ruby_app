@@ -4,7 +4,7 @@ require_relative 'spec_helper'
 
 describe 'default' do
   let(:default_ruby_version) { '2.0.0-p353' }
-  let(:bundler_version)      { '1.5.2'}
+  let(:bundler_version)      { '1.5.2' }
 
   describe 'ruby-build' do
     describe file('/usr/local/bin/ruby-build') do

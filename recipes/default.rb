@@ -19,7 +19,7 @@
 #
 
 # Install specified rubies
-include_recipe "ruby_build"
+include_recipe 'ruby_build'
 
 node['rubies'].each do |ruby_version_string, is_enabled|
   if is_enabled
@@ -30,7 +30,7 @@ node['rubies'].each do |ruby_version_string, is_enabled|
 
     # Install bundler
     gem_package "ruby-#{ruby_version_string}-bundler" do
-      package_name "bundler"
+      package_name 'bundler'
       version      node['ruby']['bundler']['version']
       gem_binary   "/opt/rubies/#{ruby_version_string}/bin/gem"
     end

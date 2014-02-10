@@ -6,7 +6,7 @@ require_relative 'matchers'
 describe 'ruby_app::default' do
   before do
     stub_resources
-    stub_command("git --version >/dev/null").and_return('1.8.2')
+    stub_command('git --version >/dev/null').and_return('1.8.2')
   end
 
   describe 'ubuntu' do

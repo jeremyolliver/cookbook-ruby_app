@@ -1,0 +1,10 @@
+AllCops:
+  Excludes:
+    - vendor/bundle/**
+
+LineLength:
+  Max: 100
+
+HashSyntax:
+  # don't force dropping ruby 1.8 support
+  Enabled: false
