@@ -12,6 +12,7 @@ describe 'ruby_app::default' do
   describe 'ubuntu' do
     let(:chef_run) { ChefSpec::Runner.new(UBUNTU_OPTS).converge(described_recipe) }
     let(:default_rubies) { ['2.0.0-p353'] }
+    let(:bundler_version) { '1.5.2' }
 
     it 'should install chruby' do
       expect(chef_run).to include_recipe('chruby::default')
@@ -23,6 +24,7 @@ describe 'ruby_app::default' do
       expect(chef_run).to install_package('make') # pre-req packages should be installed
       default_rubies.each do |ruby_version|
         expect(chef_run).to install_ruby_build_ruby(ruby_version)
+        expect(chef_run).to install_gem_package("ruby-#{ruby_version}-bundler")
       end
     end
 
