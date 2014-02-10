@@ -1,8 +1,9 @@
 ruby_app cookbook
-==========================
-This cookbook sets up a server ready to use in a common deployment environment.
+=================
 
-This cookbook:
+[![Build Status](https://travis-ci.org/jeremyolliver/cookbook-ruby_app.png?branch=master)](https://travis-ci.org/jeremyolliver/cookbook-ruby_app)
+
+This cookbook sets up a server ready to use in a common deployment environment. Features:
 
 * installs rubies into `/opt/rubies` configurable via `node['rubies']`
 * installs bundler into each of those rubies
@@ -61,6 +62,21 @@ Just include `ruby_app` in your node's `run_list`:
   "run_list": [
     "recipe[ruby_app]"
   ]
+}
+```
+
+##### adding or changing the rubies installed
+
+if you want to add a new ruby, or disable the default ruby provided by this cookbook, simply override the default attributes wherever you like and set:
+
+```json
+{
+  "override_attributes": {
+    "rubies": {
+      "2.0.0-p353": false, // setting to false disables it's install (but won't remove an installed version)
+      "2.1.0":      true
+    }
+  }
 }
 ```
 
