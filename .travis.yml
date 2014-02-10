@@ -5,7 +5,7 @@ rvm:
 cache:
   - bundler
 bundler_args: --without integration
-script: bundle exec strainer --strainer-file=ci/Strainerfile
+script: bundle exec strainer test --strainer-file=ci/Strainerfile
 branches:
   only:
     - master
