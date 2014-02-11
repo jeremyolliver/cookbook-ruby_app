@@ -8,7 +8,7 @@ module RubyAppHelpers
     [:http_proxy, :https_proxy].each do |config_opt|
       if value = Chef::Config[config_opt]
         ENV[config_opt.to_s.upcase] = value
-        opts[config_opt] = value
+        opts[config_opt.to_s] = value
       end
     end
     opts
