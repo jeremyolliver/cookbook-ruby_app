@@ -2,7 +2,6 @@
 .coverage
 .kitchen
 .vagrant
-ci/
 test/
 .cane
 .git
@@ -20,6 +19,6 @@ cookbooks/*
 tmp
 Gemfile
 Gemfile.lock
-Strainerfile
 Thorfile
+Rakefile
 Vagrantfile

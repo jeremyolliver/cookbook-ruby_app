@@ -5,8 +5,7 @@ rvm:
 cache:
   - bundler
 bundler_args: --without integration
-before_script: bundle exec berks install
-script: bundle exec strainer test --strainer-file=ci/Strainerfile
+script: bundle exec rake travis:ci
 branches:
   only:
     - master
