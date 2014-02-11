@@ -19,7 +19,7 @@ task style: ['style:chef', 'style:ruby', 'style:cane']
 
 require 'rspec/core/rake_task'
 RSpec::Core::RakeTask.new(:spec) do |t, args|
-  t.rspec_opts = '--color test/unit/spec'
+  t.rspec_opts = '--color --format=documentation test/unit/spec'
 end
 
 

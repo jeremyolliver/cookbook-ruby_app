@@ -21,9 +21,13 @@ describe 'ruby_app::default' do
     end
 
     it 'should install rubies' do
-      expect(chef_run).to install_package('make') # pre-req packages should be installed
       default_rubies.each do |ruby_version|
         expect(chef_run).to install_ruby_build_ruby(ruby_version)
+      end
+    end
+
+    it 'should install bundler' do
+      default_rubies.each do |ruby_version|
         expect(chef_run).to install_gem_package("ruby-#{ruby_version}-bundler")
       end
     end
