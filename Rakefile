@@ -33,7 +33,7 @@ begin
       instance.test(:always)
     end
   end
-rescue => ignore_kitchen_in_ci
+rescue LoadError => ignore_kitchen_in_ci
   puts "error: kitchen gem not loaded" unless ENV['CI']
 end
 
