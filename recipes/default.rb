@@ -23,10 +23,9 @@ include_recipe 'ruby_build'
 
 node['rubies'].each do |ruby_version_string, is_enabled|
   if is_enabled
-    build_environment_options = RubyAppHelpers.environment_options
     # install and compile ruby
     ruby_build_ruby ruby_version_string do
-      environment(build_environment_options)
+      environment RubyAppHelpers.environment_options
       prefix_path "/opt/rubies/#{ruby_version_string}"
     end
 
@@ -35,6 +34,7 @@ node['rubies'].each do |ruby_version_string, is_enabled|
       package_name 'bundler'
       version      node['ruby']['bundler']['version']
       gem_binary   "/opt/rubies/#{ruby_version_string}/bin/gem"
+      options      RubyAppHelpers.gem_options
     end
 
   end

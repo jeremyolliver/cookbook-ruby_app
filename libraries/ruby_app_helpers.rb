@@ -16,4 +16,9 @@ module RubyAppHelpers
     end
     opts
   end
+
+  def self.gem_options(default_options = '')
+    default_options << "--http-proxy=#{Chef::Config[:http_proxy]}" if Chef::Config[:http_proxy]
+    default_options
+  end
 end
