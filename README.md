@@ -15,7 +15,7 @@ This cookbook sets up a server ready to use in a common deployment environment. 
 * installs a set of rubies globally to /opt/rubies (defined via attributes)
 * Makes the bundler gem available, ready to install your application's dependencies
 * by default, installs some common development packages required for some gem's extensions (xml for nokogiri, and imagemagick for image manipulation)
-* Turn's on chruby's ruby auto switching for minimal configuration needed for application deployment
+* Turns on chruby's ruby auto switching for minimal configuration needed for application deployment
 
 Requirements
 ------------
@@ -67,13 +67,14 @@ Just include `ruby_app` in your node's `run_list`:
 
 ##### adding or changing the rubies installed
 
-if you want to add a new ruby, or disable the default ruby provided by this cookbook, simply override the default attributes wherever you like and set:
+if you want to add a new ruby, or disable the default ruby provided by this cookbook, simply override the default attributes wherever you like and set.
+Here's an example which disables the default installation of `2.0.0-p353` and instead installs `2.1.0`
 
 ```json
 {
   "override_attributes": {
     "rubies": {
-      "2.0.0-p353": false, // setting to false disables it's install (but won't remove an installed version)
+      "2.0.0-p353": false,
       "2.1.0":      true
     }
   }
@@ -82,8 +83,8 @@ if you want to add a new ruby, or disable the default ruby provided by this cook
 
 #### ruby_app::extensions (optional)
 
-If you will also be using imagemagick for the `Rmagick` or `mini_magick` gems, or `nokogiri` for XML parsing, then you should also include this optional cookbook in your run list
-to install the necessary packages
+If you will also be using imagemagick for the `Rmagick` or `mini_magick` gems, or `nokogiri` for XML parsing, then you can also include this optional cookbook in your run list
+to install the necessary packages.
 
 Contributing
 ------------
